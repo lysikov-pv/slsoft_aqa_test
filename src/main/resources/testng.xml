@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd">
+<suite name="Тестовое задание SLSoft">
+    <test name="Тест поиска в Яндекс Маркете">
+        <classes>
+            <class name="tests.ItemSearchTest" />
+        </classes>
+    </test>
+</suite>
