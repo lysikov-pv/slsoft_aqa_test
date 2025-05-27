@@ -1,10 +1,10 @@
-package pages;
+package data.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import tests.Item;
+import data.model.Item;
 
 public class ItemPage {
     public WebDriver driver;

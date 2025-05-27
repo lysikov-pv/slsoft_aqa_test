@@ -1,4 +1,4 @@
-package tests;
+package data.model;
 
 public class Item {
     public String title;

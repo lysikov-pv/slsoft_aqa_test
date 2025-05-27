@@ -2,7 +2,7 @@
 <suite name="Тестовое задание SLSoft">
     <test name="Тест поиска в Яндекс Маркете">
         <classes>
-            <class name="tests.ItemSearchTest" />
+            <class name="data.ItemSearchTest" />
         </classes>
     </test>
 </suite>
