@@ -1,30 +1,23 @@
-package tests;
+package data;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.OutputType;
+import data.utils.BrowserManager;
+import org.openqa.selenium.*;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Attachment;
-import pages.ItemPage;
-import pages.MainPage;
+import org.testng.annotations.*;
+import io.qameta.allure.*;
+import data.pages.ItemPage;
+import data.pages.MainPage;
+import data.model.Item;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+
+import static data.constants.TestConstants.*;
 
 @Feature("Тест поиска на Яндекс Маркете")
 public class ItemSearchTest {
     public static WebDriver driver;
     public static MainPage mainPage;
     public static ItemPage itemPage;
-    public static final int IMPLICITLY_WAIT_DELAY = 10;
-    public static final String PAGE_URL = "https://market.yandex.ru/";
-    public static final String SEARCH_STRING = "lenovo thinkpad t14";
 
     /**
      * Снятие и прикрепление скриншота для Allure
@@ -44,16 +37,14 @@ public class ItemSearchTest {
 
     @BeforeClass(description = "Открываем в браузере страницу market.yandex.ru")
     public void before() {
-        driver = new ChromeDriver();
+        driver = BrowserManager.getDriver("chrome");
         mainPage = new MainPage(driver);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_DELAY, TimeUnit.SECONDS);
-        driver.get(PAGE_URL);
+        driver.get(PAGE_URI);
         saveScreenshot(driver, "Скриншот после открытия страницы");
     }
     @AfterClass(description = "Закрываем браузер")
     public void after() {
-        driver.quit();
+        BrowserManager.quit();
     }
 
     @Test(description = "Искомый товар присутствует в результатах")
